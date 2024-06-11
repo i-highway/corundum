@@ -23,7 +23,8 @@ struct mqnic_port *mqnic_create_port(struct mqnic_if *interface, int index,
 
 	attrs.flavour = DEVLINK_PORT_FLAVOUR_PHYSICAL;
 	attrs.phys.port_number = phys_index;
-	devlink_port_attrs_set(&port->dl_port, &attrs);
+	//devlink_port_attrs_set(&port->dl_port, &attrs);
+	devlink_port_attrs_set(&port->dl_port, attrs.flavour, attrs.phys.port_number, attrs.split, attrs.phys.split_subport_number, attrs.switch_id.id, attrs.switch_id.id_len);
 
 	ret = devlink_port_register(devlink, &port->dl_port, phys_index);
 	if (ret) {
