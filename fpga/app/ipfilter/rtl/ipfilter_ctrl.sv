@@ -81,7 +81,7 @@ module ipfilter_ctrl #(
 
       wmode <= WIDLE;
       waddr <= '0;
-      rmode <= rmode;
+      rmode <= RIDLE;
       rdata <= '0;
     end else begin
       tx_drop_cnt_int <= tx_drop_cnt;
